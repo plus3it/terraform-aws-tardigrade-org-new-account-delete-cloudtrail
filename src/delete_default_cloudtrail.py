@@ -7,7 +7,7 @@ Environment Variables:
             valid input: critical, error, warning, info (default), debug
     CLOUDTRAIL_NAME_PREFIX: cloudtrail name to delete (default: cloudtrail-)
     DRY_RUN: (optional): true or false, defaults to true
-    ASSUME_ROLE_NAME: Name of role sto assume
+    ASSUME_ROLE_NAME: Name of role to assume
 """
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 import collections
