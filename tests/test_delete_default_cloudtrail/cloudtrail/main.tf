@@ -3,9 +3,9 @@ data "aws_partition" "current" {}
 data "aws_region" "current" {}
 
 resource "aws_cloudtrail" "this" {
-  name                          = var.cloudtrail_name
-  s3_bucket_name                = aws_s3_bucket.this.id
-  tags                          = var.tags
+  name           = var.cloudtrail_name
+  s3_bucket_name = aws_s3_bucket.this.id
+  tags           = var.tags
 }
 
 resource "aws_s3_bucket" "this" {
