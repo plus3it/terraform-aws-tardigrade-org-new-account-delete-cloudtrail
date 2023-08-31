@@ -5,8 +5,6 @@ data "aws_region" "current" {}
 resource "aws_cloudtrail" "this" {
   name                          = var.cloudtrail_name
   s3_bucket_name                = aws_s3_bucket.this.id
-  s3_key_prefix                 = "prefix"
-  include_global_service_events = false
   tags                          = var.tags
 }
 
