@@ -16,7 +16,9 @@ import os
 import sys
 
 import boto3
-from aws_assume_role_lib import assume_role, generate_lambda_session_name
+from aws_assume_role_lib import (  # pylint: disable=import-error
+    assume_role, generate_lambda_session_name
+)
 from botocore.exceptions import ClientError
 
 # Standard logging config
