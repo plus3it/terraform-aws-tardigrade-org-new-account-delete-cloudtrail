@@ -9,6 +9,7 @@ Environment Variables:
     DRY_RUN: (optional): true or false, defaults to true
     ASSUME_ROLE_NAME: Name of role to assume
 """
+
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 import collections
 import logging
