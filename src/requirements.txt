@@ -1,2 +1,2 @@
 aws-assume-role-lib==2.10.0
-boto3==1.40.71
+boto3==1.40.72
