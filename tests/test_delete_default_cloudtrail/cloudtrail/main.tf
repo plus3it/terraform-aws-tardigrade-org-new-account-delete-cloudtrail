@@ -4,7 +4,7 @@ data "aws_region" "current" {}
 
 resource "aws_cloudtrail" "this" {
   name           = var.cloudtrail_name
-  s3_bucket_name = aws_s3_bucket.this.id
+  s3_bucket_name = aws_s3_bucket_policy.this.id
   tags           = var.tags
 }
 
@@ -29,7 +29,7 @@ data "aws_iam_policy_document" "this" {
     condition {
       test     = "StringEquals"
       variable = "aws:SourceArn"
-      values   = ["arn:${data.aws_partition.current.partition}:cloudtrail:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:trail/${var.cloudtrail_name}"]
+      values   = ["arn:${data.aws_partition.current.partition}:cloudtrail:${data.aws_region.current.region}:${data.aws_caller_identity.current.account_id}:trail/${var.cloudtrail_name}"]
     }
   }
 
@@ -43,7 +43,7 @@ data "aws_iam_policy_document" "this" {
     }
 
     actions   = ["s3:PutObject"]
-    resources = ["${aws_s3_bucket.this.arn}/prefix/AWSLogs/${data.aws_caller_identity.current.account_id}/*"]
+    resources = ["${aws_s3_bucket.this.arn}/AWSLogs/${data.aws_caller_identity.current.account_id}/*"]
 
     condition {
       test     = "StringEquals"
@@ -53,7 +53,7 @@ data "aws_iam_policy_document" "this" {
     condition {
       test     = "StringEquals"
       variable = "aws:SourceArn"
-      values   = ["arn:${data.aws_partition.current.partition}:cloudtrail:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:trail/${var.cloudtrail_name}"]
+      values   = ["arn:${data.aws_partition.current.partition}:cloudtrail:${data.aws_region.current.region}:${data.aws_caller_identity.current.account_id}:trail/${var.cloudtrail_name}"]
     }
   }
 }
