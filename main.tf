@@ -2,7 +2,7 @@
 # Lambda
 ##############################
 module "lambda" {
-  source = "git::https://github.com/terraform-aws-modules/terraform-aws-lambda.git?ref=v8.2.0"
+  source = "git::https://github.com/terraform-aws-modules/terraform-aws-lambda.git?ref=v8.4.0"
 
   function_name = "${var.project_name}-delete-default-cloudtrail"
 
